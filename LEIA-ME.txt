@@ -1,0 +1,2 @@
+CREATIVE LAB / JÉSSICA PEREIRA
+Abra index.html no navegador para visualizar o portfólio. Imagens essenciais embutidas no HTML para a prévia funcionar localmente; a estrela original PNG e otimização WebP estão em assets.
