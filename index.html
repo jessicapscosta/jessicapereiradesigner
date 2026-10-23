@@ -305,20 +305,42 @@ body{background:var(--bg)}
  .process-step-marker{width:43px;height:43px;flex-basis:43px;border:0;border-radius:50%;background:transparent;color:#5caea0;font-size:13px}
  .process-step.is-active .process-step-marker{background:var(--mint);color:#10231d}
  .process-step-copy,.process-step-icon{display:none}
- .pstep-1{left:calc(50% - 25px);top:5%}
- .pstep-2{right:8%;top:19%}
- .pstep-3{right:8%;top:59%}
- .pstep-4{left:calc(50% - 25px);bottom:3%}
- .pstep-5{left:8%;top:59%;bottom:auto}
- .pstep-6{left:8%;top:19%}
+ /* On mobile keep steps 01–03 to the left, 04–06 to the right.
+    Reset all 4 offsets: desktop positions otherwise persist and cause overlap. */
+ .pstep-1{left:7%;right:auto;top:14%;bottom:auto}
+ .pstep-2{left:4%;right:auto;top:41%;bottom:auto}
+ .pstep-3{left:7%;right:auto;top:68%;bottom:auto}
+ .pstep-4{left:auto;right:7%;top:14%;bottom:auto}
+ .pstep-5{left:auto;right:4%;top:41%;bottom:auto}
+ .pstep-6{left:auto;right:7%;top:68%;bottom:auto}
  .process-active-detail{position:absolute;bottom:20px;left:20px;right:20px;display:flex;gap:17px;align-items:start;padding:21px 19px 17px;border:0;background:#f5f8f7;border-radius:18px;z-index:4;min-height:122px;box-shadow:0 12px 28px rgba(16,28,25,.06)}
  .process-active-index{font:600 12px 'Space Grotesk',sans-serif;color:#63b5a6;white-space:nowrap;padding-top:3px}
  .process-active-detail strong{font:600 19px/1.1 'Space Grotesk',sans-serif;letter-spacing:-.5px}
  .process-active-detail p{font:500 11px/1.6 Manrope,Arial,sans-serif;color:#62706c;margin:8px 0 0}
  .process-corner-mark{display:none}
 }
-@media(max-width:400px){.process-stage{height:620px}.process-steps{bottom:152px}.process-center{width:56%;top:36%}.process-active-detail{left:14px;right:14px;bottom:14px;padding:18px 15px}.process-step{width:43px;height:43px}.process-step-marker{width:40px;height:40px;flex-basis:40px}.pstep-1,.pstep-4{left:calc(50% - 22px)}.pstep-2,.pstep-3{right:5%}.pstep-5,.pstep-6{left:5%}}
+@media(max-width:400px){.process-stage{height:620px}.process-steps{bottom:152px}.process-center{width:56%;top:36%}.process-active-detail{left:14px;right:14px;bottom:14px;padding:18px 15px}.process-step{width:43px;height:43px}.process-step-marker{width:40px;height:40px;flex-basis:40px}}
 @media(prefers-reduced-motion:reduce){.process-ring-big,.process-ring-small,.process-ring-glow,.process-object-float,.process-satellite{animation:none!important}.process-object-perspective,.process-step{transition:none!important}}
+
+
+/* iOS Safari: avoid the default blue button / SVG color in mobile navigation & filters */
+button.hamburger,button.tab{
+  -webkit-appearance:none;
+  appearance:none;
+  color:var(--ink);
+  -webkit-tap-highlight-color:rgba(140,221,208,.25);
+}
+button.hamburger .ui-icon{color:inherit;stroke:currentColor}
+button.tab.active,button.tab:hover,button.tab:focus-visible{color:#fff}
+@media(max-width:730px){
+  /* Fully specify all offsets: desktop left/top/bottom styles must not leak into orbit. */
+  .process-steps .pstep-1{left:7%;right:auto;top:14%;bottom:auto}
+  .process-steps .pstep-2{left:4%;right:auto;top:41%;bottom:auto}
+  .process-steps .pstep-3{left:7%;right:auto;top:68%;bottom:auto}
+  .process-steps .pstep-4{left:auto;right:7%;top:14%;bottom:auto}
+  .process-steps .pstep-5{left:auto;right:4%;top:41%;bottom:auto}
+  .process-steps .pstep-6{left:auto;right:7%;top:68%;bottom:auto}
+}
 
 </style></head><body><div class="shell">
 <header class="nav-wrap"><div class="navbar"><a class="logo" href="#home"><span class="logomark"><svg aria-hidden="true" class="ui-icon icon-asterisk" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.5v19M2.5 12h19M5.3 5.3l13.4 13.4m0-13.4L5.3 18.7"></path></svg></span> JP<span style="font-weight:400"> / creative.lab</span></a><nav class="navlinks" id="nav"><a href="#home">Início</a><a href="#projetos">Projetos</a><a href="#expertise">Especialidades</a><a href="#processo">Processo</a><a href="#sobre">Sobre</a></nav><a class="navcta" href="https://wa.me/5561996815902" target="_blank" rel="noopener" aria-label="Fale comigo pelo WhatsApp">Fale comigo <span><svg aria-hidden="true" class="ui-icon icon-arrow-up-right" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 17 17 7M7 7h10v10"></path></svg></span></a><button aria-expanded="false" aria-label="Abrir menu" class="hamburger" id="hamburger"><svg aria-hidden="true" class="ui-icon icon-menu menu-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6.5h16M4 12h16M4 17.5h16"></path></svg><svg aria-hidden="true" class="ui-icon icon-close close-icon" fill="none" focusable="false" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 5l14 14M19 5 5 19"></path></svg></button></div></header>
